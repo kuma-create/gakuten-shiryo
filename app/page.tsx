@@ -102,12 +102,10 @@ function TableOfContentsPage({ setCurrentPage }: { setCurrentPage?: (page: numbe
     { page: 3, title: "会社概要", description: "基本情報に関して", icon: Building },
     { page: 4, title: "メンバー紹介", description: "創業メンバー・役員紹介", icon: Users },
     { page: 5, title: "事業背景", description: "現在の新卒採用事情", icon: Star },
-    { page: 6, title: "創業ストーリー①", description: "3人とも小さな人材会社出身", icon: FileText },
     { page: 7,  title: "登録学生データ", description: "学歴・実務経験などの構成", icon: Users },
     { page: 8,  title: "強み",        description: "他サービスとの違い", icon: Target },
     { page: 9,  title: "導入事例",    description: "採用成功事例", icon: BookOpen },
     { page: 10, title: "料金プラン",   description: "成果報酬モデルなど", icon: DollarSign },
-    { page: 11, title: "ご契約・導入", description: "導入までの流れ", icon: ArrowRight },
   ]
 
   return (
