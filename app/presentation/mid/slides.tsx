@@ -52,25 +52,21 @@ function CoverPage() {
       <div className="flex flex-col items-center text-center z-10 px-8">
         {/* 会社ロゴエリア */}
         <div className="mb-16">
-          <div className="w-64 h-24 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mb-4">
-            <span className="text-3xl font-bold text-white">MAKECULTURE</span>
-          </div>
+          {/* 会社ロゴ画像を /public に配置 (例: /logo_makeculture.png) */}
+          <Image
+            src="/company_logo.png"
+            alt="Make Culture Logo"
+            width={256}
+            height={96}
+            className="mb-4 object-contain"
+            priority
+          />
         </div>
 
         {/* タイトル */}
         <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-10">中途紹介事業について</h1>
 
-        {/* サブタイトル */}
-        <h2 className="text-2xl md:text-3xl font-semibold text-gray-600 mb-8">
-          企業における「あたりまえ」を再創造する
-        </h2>
-
-        {/* 装飾的な要素 */}
-        <div className="flex items-center space-x-4 text-gray-500">
-          <Star className="w-6 h-6 text-yellow-500" />
-          <span className="text-lg">Recruiting Service Deck</span>
-          <Star className="w-6 h-6 text-yellow-500" />
-        </div>
+        {/* サブタイトル（削除済み） */}
       </div>
     </div>
   )
@@ -135,15 +131,13 @@ function CompanyOverviewPage() {
     <div className="relative h-full overflow-hidden">
       {/* 右側にフルハイトで会社イメージ */}
       <div className="hidden md:block absolute inset-y-0 right-0 w-1/2">
-        <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-          <div className="text-center">
-            <div className="text-8xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-              MC
-            </div>
-            <div className="text-2xl font-semibold text-gray-700">MAKECULTURE</div>
-          </div>
-        </div>
-        <div className="absolute inset-0 bg-black/10" />
+        <Image
+          src="/company_picture.jpg"         // ← 会社外観やオフィス写真を /public に配置
+          alt="Make Culture Office"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
       {/* 内容エリア */}
@@ -199,9 +193,9 @@ function MVVPage() {
       {/* コンテンツ */}
       <div className="relative z-10 h-full flex items-center justify-center px-6 py-16">
         <div className="max-w-6xl w-full">
-          <h2 className="text-5xl font-extrabold text-gray-900 mb-16 text-center">MVV</h2>
+          <h2 className="text-5xl font-extrabold text-gray-900 mb-16 text-center">私たちが目指しているもの</h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="flex justify-center">
             {[
               {
                 title: "Mission",
@@ -209,26 +203,18 @@ function MVVPage() {
                 icon: <Target className="w-12 h-12" />,
                 gradient: "from-red-500 to-pink-500",
               },
-              {
-                title: "Vision",
-                content: "世の中や企業にある「あたりまえ」を疑い、「あたりまえ」とは何かを再定義する。",
-                icon: <Lightbulb className="w-12 h-12" />,
-                gradient: "from-blue-500 to-cyan-500",
-              },
-              {
-                title: "Our Concept",
-                content: "日本の今ある文化を一度破壊し、本質的な文化へと再創造しなおす。",
-                icon: <Users className="w-12 h-12" />,
-                gradient: "from-purple-500 to-indigo-500",
-              },
             ].map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl p-8 h-full hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                  <div className={`inline-flex p-6 rounded-2xl bg-gradient-to-r ${item.gradient} text-white mb-6`}>
+              <div key={index} className="relative group w-full max-w-sm mx-auto">
+                {/* glowing backdrop */}
+                <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${item.gradient} blur-xl opacity-40 group-hover:opacity-60 transition`} />
+                
+                {/* card */}
+                <div className="relative bg-white/90 backdrop-blur-lg rounded-3xl shadow-xl px-10 py-12 flex flex-col items-center text-center transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl">
+                  <div className="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-gradient-to-r from-white/20 to-white/5 ring-4 ring-white/40 mb-8">
                     {item.icon}
                   </div>
-                  <h3 className="text-3xl font-bold text-gray-800 mb-6">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-lg">{item.content}</p>
+                  <h3 className="text-4xl font-extrabold text-gray-900 mb-6 tracking-wide">{item.title}</h3>
+                  <p className="text-gray-700 leading-relaxed text-lg max-w-xs">{item.content}</p>
                 </div>
               </div>
             ))}
@@ -244,19 +230,19 @@ function MembersPage() {
     {
       name: "熊崎 友",
       role: "代表取締役",
-      img: "/placeholder.svg?height=300&width=300",
+      img: "/20240807_MakeCulture様_0023.JPG",
       bio: "HR・財務・組織改善・事業改善領域を中心にクライアント課題を解決。",
     },
     {
       name: "坂入 健仁",
       role: "取締役",
-      img: "/placeholder.svg?height=300&width=300",
+      img: "/20240807_MakeCulture様_0025.JPG",
       bio: "採用コンサル・IT開発支援に従事。RPO / 採用コンサルを担当。",
     },
     {
       name: "上田 光心",
       role: "取締役",
-      img: "/placeholder.svg?height=300&width=300",
+      img: "/20240807_MakeCulture様_0017.JPG",
       bio: "学生視点から開発支援や採用支援を実施。コミュニティ創生などを担当。",
     },
   ]
@@ -310,7 +296,12 @@ function BusinessOverviewPage() {
               <h3 className="text-3xl font-bold text-gray-800 ml-4">採用支援事業</h3>
             </div>
             <ul className="space-y-4 text-lg">
-              {["学生転職・学転インターン", "新卒・中途紹介事業", "学転ナレッジ"].map((item, index) => (
+              {[
+                "学生転職 — 長期インターン／新卒前の転職を支援し、企業との早期マッチングを実現",
+                "学転インターン — 学生の実務経験機会を創出し、企業の若手採用を加速",
+                "新卒・中途紹介事業 — スキル適合度の高い人材を紹介",
+                "学転ナレッジ — 採用ノウハウを体系化したメディア運営",
+              ].map((item, index) => (
                 <li key={index} className="flex items-center">
                   <CheckCircle className="w-6 h-6 text-blue-600 mr-4" />
                   <span className="text-gray-700">{item}</span>
@@ -346,10 +337,10 @@ function CandidatePoolPage() {
     {
       title: "職種割合",
       data: [
-        { label: "営業職", value: "53%", color: "bg-blue-500" },
-        { label: "エンジニア", value: "24%", color: "bg-green-500" },
-        { label: "事務職", value: "17%", color: "bg-yellow-500" },
-        { label: "その他", value: "6%", color: "bg-gray-500" },
+        { label: "営業職", value: "48%", color: "bg-blue-500" },
+        { label: "エンジニア", value: "44%", color: "bg-green-500" },
+        { label: "事務職", value: "5%",  color: "bg-yellow-500" },
+        { label: "その他", value: "3%",  color: "bg-gray-500" },
       ],
     },
     {
@@ -424,18 +415,10 @@ function CandidatePoolPage() {
 
 function CaseStudies1Page() {
   const caseStudies = [
-    {
-      company: "SBヒューマンキャピタル株式会社",
-      size: "従業員数：165名（2022年7月時点）",
-      business: "IT・人材",
-      issue: "複数展開している自社サービスの追加機能開発・改修に向け、クラウドエンジニアを募集。",
-    },
-    {
-      company: "株式会社UPSIDER",
-      size: "従業員数：100名（2023年10月時点）",
-      business: "IT・金融",
-      issue: "事業グロースを成し遂げ成長期真っ只中の自社サービスを拡大しつつ、新規サービス開発・営業職を募集。",
-    },
+    { company: "TWOSTONE＆Sons", logo: "/logos/tss.jpg", size: "", business: "IT・HR", issue: "営業職採用の母集団形成と早期戦力化を図りたい。" },
+    { company: "M＆A総合研究所",  logo: "/logos/masoken.png",  size: "", business: "M&A",   issue: "若手ハイパフォーマー営業を継続的に採用したい。" },
+    { company: "ヤプリ",          logo: "/logos/yappli.png",    size: "", business: "SaaS",  issue: "事業拡大フェーズでフィールドセールスを強化したい。" },
+    { company: "HATARABA",        logo: "/logos/hataraba.png",  size: "", business: "HR Tech", issue: "CS兼務のインサイドセールスを迅速に確保したい。" },
   ]
 
   return (
@@ -447,8 +430,12 @@ function CaseStudies1Page() {
           {caseStudies.map((study, index) => (
             <Card key={index} className="bg-white shadow-xl p-8 hover:shadow-2xl transition-all duration-300">
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center mr-4">
-                  <div className="text-2xl font-bold text-blue-600">{study.company.charAt(0)}</div>
+                <div className="w-16 h-16 rounded-2xl overflow-hidden flex items-center justify-center mr-4 bg-gray-100">
+                  {study.logo ? (
+                    <Image src={study.logo} alt={study.company} width={64} height={64} className="object-contain" />
+                  ) : (
+                    <span className="text-2xl font-bold text-blue-600">{study.company.charAt(0)}</span>
+                  )}
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-800">{study.company}</h3>
@@ -477,18 +464,10 @@ function CaseStudies1Page() {
 
 function CaseStudies2Page() {
   const caseStudies = [
-    {
-      company: "株式会社マーキュリー",
-      size: "従業員数：85名（2024年1月時点）",
-      business: "IT・不動産",
-      issue: "第2新卒層の営業職と自社サービスを担うエンジニアのミドル層を募集。",
-    },
-    {
-      company: "株式会社M&A総合研究所",
-      size: "従業員数：330名（2024年2月時点）",
-      business: "M&A",
-      issue: "事業拡大に向けて若い営業職を募集。業務特性から営業経験者に絞り採用。",
-    },
+    { company: "SBヒューマンキャピタル", logo: "/logos/sb.png",      size: "", business: "IT・人材", issue: "自社サービスの追加機能開発を担うクラウドエンジニアを募集。" },
+    { company: "LITALICO",             logo: "/logos/litalico.avif",   size: "", business: "福祉・教育", issue: "プロダクト改善を推進できるフルスタックエンジニアを採用したい。" },
+    { company: "SalesMarker",          logo: "/logos/salesmarker.png", size: "", business: "SaaS",       issue: "顧客基盤拡大に伴いアプリ基盤強化のためのバックエンドSEが必要。" },
+    { company: "ヘッドウォータース",     logo: "/logos/headwaters.jpeg", size: "", business: "SI・AI",     issue: "AI×IoT案件増加に対応できるモバイルエンジニアを確保したい。" },
   ]
 
   return (
@@ -500,8 +479,12 @@ function CaseStudies2Page() {
           {caseStudies.map((study, index) => (
             <Card key={index} className="bg-white shadow-xl p-8 hover:shadow-2xl transition-all duration-300">
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl flex items-center justify-center mr-4">
-                  <div className="text-2xl font-bold text-purple-600">{study.company.charAt(0)}</div>
+                <div className="w-16 h-16 rounded-2xl overflow-hidden flex items-center justify-center mr-4 bg-gray-100">
+                  {study.logo ? (
+                    <Image src={study.logo} alt={study.company} width={64} height={64} className="object-contain" />
+                  ) : (
+                    <span className="text-2xl font-bold text-purple-600">{study.company.charAt(0)}</span>
+                  )}
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-800">{study.company}</h3>
@@ -534,7 +517,7 @@ function EngineerSupportPage() {
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-gray-800 mb-8">エンジニア支援について</h2>
         <p className="text-xl text-gray-600 mb-16 max-w-4xl mx-auto">
-          エンジニア採用においてフリーランス（SES）からの正社員転���を多数実現。
+          半年間の準委任（業務委託）契約でスキルとカルチャーフィットを確認した後、正社員へ転換するモデルで多数実績。
         </p>
 
         <div className="bg-white rounded-3xl shadow-2xl p-12">
@@ -691,7 +674,7 @@ export default function Page() {
   const CurrentPageComponent = pages[currentPage].component
 
   return (
-    <div className="w-full h-screen bg-white relative">
+    <div className="w-full h-screen bg-white flex flex-col">
       {/* ヘッダー */}
       <div className="bg-gray-800 text-white px-6 py-3 flex items-center justify-between">
         <div className="flex items-center space-x-4">
@@ -723,7 +706,7 @@ export default function Page() {
       </div>
 
       {/* メインコンテンツ */}
-      <div className="flex-1 overflow-auto" style={{ height: "calc(100vh - 120px)" }}>
+      <div className="flex-1 overflow-auto">
         <CurrentPageComponent setCurrentPage={setCurrentPage} />
       </div>
 
