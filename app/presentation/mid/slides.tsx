@@ -415,10 +415,10 @@ function CandidatePoolPage() {
 
 function CaseStudies1Page() {
   const caseStudies = [
-    { company: "TWOSTONE＆Sons", logo: "/logos/tss.jpg", size: "", business: "IT・HR", issue: "営業職採用の母集団形成と早期戦力化を図りたい。" },
-    { company: "M＆A総合研究所",  logo: "/logos/masoken.png",  size: "", business: "M&A",   issue: "若手ハイパフォーマー営業を継続的に採用したい。" },
-    { company: "ヤプリ",          logo: "/logos/yappli.png",    size: "", business: "SaaS",  issue: "事業拡大フェーズでフィールドセールスを強化したい。" },
-    { company: "HATARABA",        logo: "/logos/hataraba.png",  size: "", business: "HR Tech", issue: "CS兼務のインサイドセールスを迅速に確保したい。" },
+    { company: "株式会社TWOSTONE＆Sons", logo: "/logos/tss.jpg", size: "", business: "IT・HR", issue: "営業職採用の母集団形成と早期戦力化を図りたい。" },
+    { company: "株式会社M＆A総合研究所",  logo: "/logos/masoken.png",  size: "", business: "M&A",   issue: "若手ハイパフォーマー営業を継続的に採用したい。" },
+    { company: "株式会社ヤプリ",          logo: "/logos/yappli.png",    size: "", business: "SaaS",  issue: "事業拡大フェーズでフィールドセールスを強化したい。" },
+    { company: "株式会社HATARABA",        logo: "/logos/hataraba.png",  size: "", business: "HR Tech", issue: "CS兼務のインサイドセールスを迅速に確保したい。" },
   ]
 
   return (
@@ -464,10 +464,10 @@ function CaseStudies1Page() {
 
 function CaseStudies2Page() {
   const caseStudies = [
-    { company: "SBヒューマンキャピタル", logo: "/logos/sb.png",      size: "", business: "IT・人材", issue: "自社サービスの追加機能開発を担うクラウドエンジニアを募集。" },
-    { company: "LITALICO",             logo: "/logos/litalico.avif",   size: "", business: "福祉・教育", issue: "プロダクト改善を推進できるフルスタックエンジニアを採用したい。" },
-    { company: "SalesMarker",          logo: "/logos/salesmarker.png", size: "", business: "SaaS",       issue: "顧客基盤拡大に伴いアプリ基盤強化のためのバックエンドSEが必要。" },
-    { company: "ヘッドウォータース",     logo: "/logos/headwaters.jpeg", size: "", business: "SI・AI",     issue: "AI×IoT案件増加に対応できるモバイルエンジニアを確保したい。" },
+    { company: "SBヒューマンキャピタル株式会社", logo: "/logos/sb.png",      size: "", business: "IT・人材", issue: "自社サービスの追加機能開発を担うクラウドエンジニアを募集。" },
+    { company: "株式会社LITALICO",             logo: "/logos/litalico.avif",   size: "", business: "福祉・教育", issue: "プロダクト改善を推進できるフルスタックエンジニアを採用したい。" },
+    { company: "株式会社SalesMarker",          logo: "/logos/salesmarker.png", size: "", business: "SaaS",       issue: "顧客基盤拡大に伴いアプリ基盤強化のためのバックエンドSEが必要。" },
+    { company: "株式会社ヘッドウォータース",     logo: "/logos/headwaters.jpeg", size: "", business: "SI・AI",     issue: "AI×IoT案件増加に対応できるモバイルエンジニアを確保したい。" },
   ]
 
   return (
