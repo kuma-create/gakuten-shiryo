@@ -30,10 +30,10 @@ import {
   X,
 } from "lucide-react"
 import { ChevronLeft, ChevronRight, Brush, Activity, Layers,Paintbrush, Mail, UserCircle  } from "lucide-react"
-import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 
-Chart.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const pages = [
   { id: 1, title: "表紙", component: CoverPage },
