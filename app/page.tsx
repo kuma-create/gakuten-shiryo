@@ -30,8 +30,11 @@ import {
   X,
 } from "lucide-react"
 import { ChevronLeft, ChevronRight, Brush, Activity, Layers,Paintbrush, Mail, UserCircle  } from "lucide-react"
-import { Chart as ChartJS } from "chart.js/auto";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
+
+// Chart.js 要素登録（本番ビルドで ArcElement が抜け落ちるのを防ぐ）
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 
 const pages = [
