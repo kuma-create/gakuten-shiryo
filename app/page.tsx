@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -32,9 +32,6 @@ import {
 import { ChevronLeft, ChevronRight, Brush, Activity, Layers,Paintbrush, Mail, UserCircle  } from "lucide-react"
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
-
-// Chart.js 要素登録（本番ビルドで ArcElement が抜け落ちるのを防ぐ）
-ChartJS.register(ArcElement, Tooltip, Legend);
 
 
 const pages = [
@@ -585,6 +582,13 @@ function FoundingStory5Page() {
 
 function DemographicsPage() {
   const [intro, setIntro] = useState(true);
+
+  // ――― Chart.js element registration ―――
+  useEffect(() => {
+    // ArcElement / Tooltip / Legend をこのチャンク側の ChartJS インスタンスに登録
+    ChartJS.register(ArcElement, Tooltip, Legend);
+  }, []);
+
   return (
     <div className="h-full overflow-y-auto bg-white">
 
