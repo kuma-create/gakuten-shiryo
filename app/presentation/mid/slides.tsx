@@ -415,11 +415,39 @@ function CandidatePoolPage() {
 
 function CaseStudies1Page() {
   const caseStudies = [
-    { company: "株式会社TWOSTONE＆Sons", logo: "/logos/tss.jpg", size: "", business: "IT・HR", issue: "営業職採用の母集団形成と早期戦力化を図りたい。" },
-    { company: "株式会社M＆A総合研究所",  logo: "/logos/masoken.png",  size: "", business: "M&A",   issue: "若手ハイパフォーマー営業を継続的に採用したい。" },
-    { company: "株式会社ヤプリ",          logo: "/logos/yappli.png",    size: "", business: "SaaS",  issue: "事業拡大フェーズでフィールドセールスを強化したい。" },
-    { company: "株式会社HATARABA",        logo: "/logos/hataraba.png",  size: "", business: "HR Tech", issue: "CS兼務のインサイドセールスを迅速に確保したい。" },
-  ]
+    {
+      company: "株式会社TWOSTONE＆Sons",
+      logo: "/logos/tss.jpg",
+      size: "",
+      business: "IT・HR",
+      issue: "営業職採用の母集団形成と早期戦力化を図りたい。",
+      solution: "営業2名を採用。両名とも MVP を受賞し、即戦力として会社に大きく貢献。"
+    },
+    {
+      company: "株式会社M＆A総合研究所",
+      logo: "/logos/masoken.png",
+      size: "",
+      business: "M&A",
+      issue: "若手ハイパフォーマー営業を継続的に採用したい。",
+      solution: "営業職1名をポテンシャル採用し、2年目で年収 2,000 万円を達成。"
+    },
+    {
+      company: "株式会社ヤプリ",
+      logo: "/logos/yappli.png",
+      size: "",
+      business: "SaaS",
+      issue: "事業拡大フェーズでフィールドセールスを強化したい。",
+      solution: "フィールドセールス1名／CS1名を採用。CSはリーダーへ昇格し、拡大フェーズを牽引。"
+    },
+    {
+      company: "株式会社HATARABA",
+      logo: "/logos/hataraba.png",
+      size: "",
+      business: "HR Tech",
+      issue: "CS兼務のインサイドセールスを迅速に確保したい。",
+      solution: "インサイドセールス1名を採用。アポ獲得体制を整備し利益を拡大、中心メンバーとして活躍中。"
+    },
+  ];
 
   return (
     <div className="h-full overflow-y-auto bg-white p-12">
@@ -451,6 +479,12 @@ function CaseStudies1Page() {
                   <p className="text-gray-700 leading-relaxed">
                     <span className="font-semibold text-gray-800">企業課題：</span>
                     {study.issue}
+                <div className="bg-blue-50 rounded-2xl p-6">
+                  <p className="text-gray-700 leading-relaxed">
+                    <span className="font-semibold text-gray-800">導入成果：</span>
+                    {study.solution}
+                  </p>
+                </div>
                   </p>
                 </div>
               </div>
@@ -464,11 +498,39 @@ function CaseStudies1Page() {
 
 function CaseStudies2Page() {
   const caseStudies = [
-    { company: "SBヒューマンキャピタル株式会社", logo: "/logos/sb.png",      size: "", business: "IT・人材", issue: "自社サービスの追加機能開発を担うクラウドエンジニアを募集。" },
-    { company: "株式会社LITALICO",             logo: "/logos/litalico.avif",   size: "", business: "福祉・教育", issue: "プロダクト改善を推進できるフルスタックエンジニアを採用したい。" },
-    { company: "株式会社SalesMarker",          logo: "/logos/salesmarker.png", size: "", business: "SaaS",       issue: "顧客基盤拡大に伴いアプリ基盤強化のためのバックエンドSEが必要。" },
-    { company: "株式会社ヘッドウォータース",     logo: "/logos/headwaters.jpeg", size: "", business: "SI・AI",     issue: "AI×IoT案件増加に対応できるモバイルエンジニアを確保したい。" },
-  ]
+    {
+      company: "SBヒューマンキャピタル株式会社",
+      logo: "/logos/sb.png",
+      size: "",
+      business: "IT・人材",
+      issue: "自社サービスの追加機能開発を担うクラウドエンジニアを募集。",
+      solution: "クラウドエンジニア1名を年収 700 万円で採用。チームリーダーとして活躍中。"
+    },
+    {
+      company: "株式会社LITALICO",
+      logo: "/logos/litalico.avif",
+      size: "",
+      business: "福祉・教育",
+      issue: "プロダクト改善を推進できるフルスタックエンジニアを採用したい。",
+      solution: "フルスタックエンジニア2名を採用（ポテンシャル＋年収800万ハイスキル）。両名ともプロダクト改善に寄与。"
+    },
+    {
+      company: "株式会社SalesMarker",
+      logo: "/logos/salesmarker.png",
+      size: "",
+      business: "SaaS",
+      issue: "顧客基盤拡大に伴いアプリ基盤強化のためのバックエンドSEが必要。",
+      solution: "バックエンドエンジニア1名を年収 600 万円で採用。技術理解が深く、スペシャリストとして活躍中。"
+    },
+    {
+      company: "株式会社ヘッドウォータース",
+      logo: "/logos/headwaters.jpeg",
+      size: "",
+      business: "SI・AI",
+      issue: "AI×IoT案件増加に対応できるモバイルエンジニアを確保したい。",
+      solution: "モバイル1名・インフラ2名を採用。新規案件獲得と Azure パートナー要件を満たし、現在も活躍中。"
+    },
+  ];
 
   return (
     <div className="h-full overflow-y-auto bg-gradient-to-br from-gray-50 to-blue-50 p-12">
@@ -500,6 +562,12 @@ function CaseStudies2Page() {
                   <p className="text-gray-700 leading-relaxed">
                     <span className="font-semibold text-gray-800">企業課題：</span>
                     {study.issue}
+                <div className="bg-blue-50 rounded-2xl p-6">
+                  <p className="text-gray-700 leading-relaxed">
+                    <span className="font-semibold text-gray-800">導入成果：</span>
+                    {study.solution}
+                  </p>
+                </div>
                   </p>
                 </div>
               </div>
