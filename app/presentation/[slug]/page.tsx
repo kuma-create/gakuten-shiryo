@@ -6,12 +6,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
     // slides.tsx の default export は <Slides /> コンポーネント
     const mod = await import(`../${params.slug}/slides`);
     const Slides = mod.default;
-    const title = mod.deckTitle ?? "Untitled";
+    const title = mod.deckTitle ?? "株式会社Make Culture　中途紹介事業";
 
     return (
-      <PresentationLayout title={title}>
         <Slides />
-      </PresentationLayout>
     );
   } catch {
     notFound();

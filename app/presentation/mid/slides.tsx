@@ -1,9 +1,11 @@
+
 "use client"
 
 import { useState } from "react"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import Head from "next/head";
 import {
   Users,
   Target,
@@ -20,6 +22,13 @@ import {
   Clock,
   Lightbulb,
 } from "lucide-react"
+
+// ページ <head> のタイトルを設定（v0 プレビューやブラウザタブの "Untitled" を解消）
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "株式会社Make Culture　中途紹介事業",
+};
 
 const pages = [
   { id: 1, title: "表紙", component: CoverPage },
@@ -742,57 +751,63 @@ export default function Page() {
   const CurrentPageComponent = pages[currentPage].component
 
   return (
-    <div className="w-full h-screen bg-white flex flex-col">
-      {/* ヘッダー */}
-      <div className="bg-gray-800 text-white px-6 py-3 flex items-center justify-between">
-        <div className="flex items-center space-x-4">
-          <h1 className="text-lg font-bold">株式会社Make Culture　中途紹介事業</h1>
-          <Badge variant="secondary" className="bg-gray-600 text-white">
-            {currentPage + 1} / {pages.length}
-          </Badge>
+    <>
+      <Head>
+        <title>株式会社Make Culture　中途紹介事業</title>
+      </Head>
+
+      <div className="w-full h-screen bg-white flex flex-col">
+        {/* ヘッダー */}
+        <div className="bg-gray-800 text-white px-6 py-3 flex items-center justify-between">
+          <div className="flex items-center space-x-4">
+            <h1 className="text-lg font-bold">株式会社Make Culture　中途紹介事業</h1>
+            <Badge variant="secondary" className="bg-gray-600 text-white">
+              {currentPage + 1} / {pages.length}
+            </Badge>
+          </div>
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={prevPage}
+                disabled={currentPage === 0}
+                className="bg-gray-700 border border-gray-600 text-white hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed px-3 py-1 rounded text-sm flex items-center"
+              >
+                <ChevronLeft className="w-4 h-4 mr-1" />
+                前へ
+              </button>
+              <button
+                onClick={nextPage}
+                disabled={currentPage === pages.length - 1}
+                className="bg-gray-700 border border-gray-600 text-white hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed px-3 py-1 rounded text-sm flex items-center"
+              >
+                次へ
+                <ChevronRight className="w-4 h-4 ml-1" />
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="flex items-center space-x-4">
-          <div className="flex items-center space-x-2">
-            <button
-              onClick={prevPage}
-              disabled={currentPage === 0}
-              className="bg-gray-700 border border-gray-600 text-white hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed px-3 py-1 rounded text-sm flex items-center"
-            >
-              <ChevronLeft className="w-4 h-4 mr-1" />
-              前へ
-            </button>
-            <button
-              onClick={nextPage}
-              disabled={currentPage === pages.length - 1}
-              className="bg-gray-700 border border-gray-600 text-white hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed px-3 py-1 rounded text-sm flex items-center"
-            >
-              次へ
-              <ChevronRight className="w-4 h-4 ml-1" />
-            </button>
+
+        {/* メインコンテンツ */}
+        <div className="flex-1 overflow-auto">
+          <CurrentPageComponent setCurrentPage={setCurrentPage} />
+        </div>
+
+        {/* フッター */}
+        <div className="bg-gray-100 px-6 py-2 flex items-center justify-between">
+          <div className="text-sm text-gray-600">{pages[currentPage].title}</div>
+          <div className="flex space-x-1">
+            {pages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentPage(index)}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  index === currentPage ? "bg-blue-600" : "bg-gray-300"
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>
-
-      {/* メインコンテンツ */}
-      <div className="flex-1 overflow-auto">
-        <CurrentPageComponent setCurrentPage={setCurrentPage} />
-      </div>
-
-      {/* フッター */}
-      <div className="bg-gray-100 px-6 py-2 flex items-center justify-between">
-        <div className="text-sm text-gray-600">{pages[currentPage].title}</div>
-        <div className="flex space-x-1">
-          {pages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentPage(index)}
-              className={`w-2 h-2 rounded-full transition-colors ${
-                index === currentPage ? "bg-blue-600" : "bg-gray-300"
-              }`}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
+    </>
   )
 }

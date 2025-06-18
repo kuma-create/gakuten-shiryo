@@ -698,27 +698,25 @@ function DemographicsPage() {
 
       {/* --- Section 4 : デモ画面 ------------------------------------------- */}
       <section
-        id="demo"                                  /* ← 必要ならアンカー */
+        id="demo"
         className="min-h-screen flex flex-col justify-center items-center px-6 md:px-20 bg-gray-50"
       >
         <div className="w-full max-w-5xl">
           <h3 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-6 text-center">
             デモ画面
           </h3>
-
-          {/* 外部サイトを iframe で埋め込む */}
-          <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-xl shadow-lg">
-            <iframe
-              src="https://all-gakuseitenshoku.vercel.app/"
-              title="学生転職デモサイト"
-              className="absolute top-0 left-0 w-full h-full border-0 rounded-xl"
-              allow="clipboard-write; accelerometer; encrypted-media; gyroscope; picture-in-picture"
-            />
+          <div className="flex flex-col items-center space-y-6">
+            <p className="text-lg text-gray-700">
+              学生転職の実際の画面は別タブでご覧いただけます。
+            </p>
+            <button
+              onClick={() => window.open('https://all-gakuseitenshoku.vercel.app/', '_blank')}
+              className="inline-flex items-center px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-full shadow-lg transition-colors"
+            >
+              デモサイトを別タブで開く
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </button>
           </div>
-
-          {/* 埋め込みがブロックされる場合：
-              - 外部サイト側で X-Frame-Options/CSP を緩める
-              - もしくは iframe を外し「新しいタブで見る」ボタンを置く */}
         </div>
       </section>
 
