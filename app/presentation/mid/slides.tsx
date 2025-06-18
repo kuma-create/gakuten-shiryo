@@ -676,8 +676,8 @@ function ProcessFlowPage() {
 
 function PricingPage() {
   const pricingData = [
-    { position: "営業職 / マーケ職 / 人事職など", fee: "理論年収の30%〜35%" },
-    { position: "未経験エンジニア", fee: "理論年収30%" },
+    { position: "営業職 / マーケ職 / 人事職など", fee: "理論年収の35%" },
+    { position: "未経験エンジニア", fee: "60万円" },
     { position: "経験エンジニア", fee: "理論年収40%〜" },
     { position: "経営層・役員など", fee: "理論年収の50%〜（応相談）" },
   ]
