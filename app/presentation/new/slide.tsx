@@ -1136,8 +1136,8 @@ function PricingPage() {
             </p>
             <ul className="text-sm text-gray-600 space-y-2 mb-8 list-disc list-inside text-left">
               <li>求人掲載 / スカウト送信 / 応募管理 全て無料</li>
-              <li>期間：2025/7/1 〜 2026/6/30</li>
-              <li>2名目以降は通常成果報酬が適用</li>
+              <li>期間：契約開始日 〜 2026/3/31</li>
+              <li>2名目以降は通常成果報酬が適用（27卒新卒採用のみ適用）</li>
             </ul>
             <p className="text-xs text-gray-500">
               ※ キャンペーン適用には事前申請が必要です
